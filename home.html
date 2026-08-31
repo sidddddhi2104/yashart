@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>YASHART — Screen Printing</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #111111;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .site-header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 78px;
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #111111;
+    }
+
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #111111;
+      color: #ffffff;
+
+      font-size: 25px;
+      font-weight: 800;
+      border-radius: 8px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      font-size: 20px;
+      letter-spacing: 1.5px;
+    }
+
+    .logo-text small {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #777777;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 8px 0;
+
+      color: #333333;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #111111;
+    }
+
+    .main-nav a.active::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 2px;
+      background: #111111;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .phone-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      color: #222222;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .phone-icon {
+      font-size: 17px;
+    }
+
+    .whatsapp-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 11px 17px;
+
+      background: #25d366;
+      color: #ffffff;
+
+      border-radius: 6px;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: 0.2s ease;
+    }
+
+    .whatsapp-link:hover {
+      background: #1ebe5d;
+      transform: translateY(-1px);
+    }
+
+
+    /* =========================
+       CATALOGUE
+    ========================= */
+
+    .catalogue {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      padding: 80px 24px 35px;
+
+      text-align: center;
+    }
+
+    .catalogue-label {
+      display: inline-block;
+
+      margin-bottom: 14px;
+
+      color: #777777;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .catalogue h1 {
+      margin-bottom: 18px;
+
+      font-size: 46px;
+      line-height: 1.1;
+      font-weight: 800;
+
+      letter-spacing: -1px;
+    }
+
+    .catalogue-description {
+      max-width: 680px;
+      margin: 0 auto;
+
+      color: #666666;
+
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       CATEGORY TABS
+    ========================= */
+
+    .category-tabs {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      padding: 15px 24px 45px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .category-tab {
+      border: 1px solid #dddddd;
+      background: #ffffff;
+
+      color: #444444;
+
+      padding: 11px 18px;
+
+      border-radius: 6px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      transition: 0.2s ease;
+    }
+
+    .category-tab:hover {
+      border-color: #111111;
+      color: #111111;
+    }
+
+    .category-tab.active {
+      background: #111111;
+      border-color: #111111;
+      color: #ffffff;
+    }
+
+html {
+  scroll-behavior: smooth;
+}
+    /* =========================
+       PRODUCTS GRID
+    ========================= */
+
+    .products-section {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      padding: 0 24px 90px;
+    }
+
+    .products-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 24px;
+    }
+
+
+    /* =========================
+       PRODUCT CARD
+    ========================= */
+
+    .product-card {
+      position: relative;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+
+      border-color: #cccccc;
+
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /* Product image */
+
+    .product-image {
+      height: 245px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5f5f5,
+          #e9e9e9
+        );
+    }
+
+    .product-image::before {
+      content: "";
+
+      width: 130px;
+      height: 130px;
+
+      border-radius: 50%;
+
+      background: #ffffff;
+
+      position: absolute;
+
+      opacity: 0.75;
+    }
+
+    .product-symbol {
+      position: relative;
+      z-index: 1;
+
+      font-size: 58px;
+      font-weight: 800;
+
+      color: #222222;
+    }
+
+
+    /* Featured badge */
+
+    .featured-badge {
+      position: absolute;
+
+      top: 14px;
+      left: 14px;
+
+      z-index: 5;
+
+      padding: 7px 11px;
+
+      background: #111111;
+      color: #ffffff;
+
+      border-radius: 5px;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+
+    /* Product information */
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-category {
+      display: block;
+
+      margin-bottom: 9px;
+
+      color: #777777;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .product-title {
+      margin-bottom: 10px;
+
+      color: #111111;
+
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 750;
+    }
+
+    .product-description {
+      color: #777777;
+
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .product-view {
+      display: inline-flex;
+
+      margin-top: 18px;
+
+      color: #111111;
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .product-view::after {
+      content: " →";
+
+      transition: 0.2s ease;
+    }
+
+    .product-card:hover .product-view::after {
+      margin-left: 5px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .site-footer {
+      background: #111111;
+      color: #ffffff;
+
+      padding-top: 65px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+
+      padding: 0 24px;
+
+      display: grid;
+
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+
+      gap: 60px;
+    }
+
+    .footer-brand {
+      max-width: 430px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-bottom: 22px;
+    }
+
+    .footer-logo-icon {
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+      color: #111111;
+
+      border-radius: 8px;
+
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .footer-logo-text {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-description {
+      color: #bbbbbb;
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 22px;
+
+      font-size: 14px;
+
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 13px;
+    }
+
+    .footer-links a {
+      color: #bbbbbb;
+
+      font-size: 14px;
+
+      transition: 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-contact {
+      list-style: none;
+    }
+
+    .footer-contact li {
+      margin-bottom: 15px;
+
+      color: #bbbbbb;
+
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-contact a {
+      color: #bbbbbb;
+    }
+
+    .footer-contact a:hover {
+      color: #ffffff;
+    }
+
+    .contact-icon {
+      display: inline-block;
+
+      width: 25px;
+
+      color: #ffffff;
+    }
+
+    .working-hours {
+      margin-top: 25px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid #333333;
+
+      color: #bbbbbb;
+
+      font-size: 13px;
+    }
+
+    .working-hours strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #ffffff;
+
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+
+      margin: 55px auto 0;
+
+      padding: 22px 24px;
+
+      border-top: 1px solid #333333;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #888888;
+
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+
+    /* =========================
+       HIDDEN PRODUCTS
+    ========================= */
+
+    .product-card.hidden {
+      display: none;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+
+    @media (max-width: 850px) {
+
+      .header-container {
+        flex-wrap: wrap;
+
+        padding: 15px 20px;
+      }
+
+      .main-nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        padding-top: 5px;
+      }
+
+      .header-contact {
+        margin-left: auto;
+      }
+
+      .phone-link {
+        display: none;
+      }
+
+      .category-tabs {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
+      .header-container {
+        min-height: auto;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 21px;
+      }
+
+      .logo-text strong {
+        font-size: 17px;
+      }
+
+      .logo-text small {
+        font-size: 9px;
+      }
+
+      .whatsapp-link {
+        padding: 9px 12px;
+
+        font-size: 12px;
+      }
+
+      .main-nav {
+        gap: 20px;
+      }
+
+      .main-nav a {
+        font-size: 13px;
+      }
+
+      .catalogue {
+        padding: 60px 20px 30px;
+      }
+
+      .catalogue h1 {
+        font-size: 34px;
+      }
+
+      .catalogue-description {
+        font-size: 15px;
+      }
+
+      .category-tabs {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        padding: 10px 20px 45px;
+
+        scrollbar-width: none;
+      }
+
+      .category-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-tab {
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+
+        padding: 10px 15px;
+
+        font-size: 13px;
+      }
+
+      .products-section {
+        padding: 0 20px 60px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+      }
+
+      .product-image {
+        height: 220px;
+      }
+
+      .site-footer {
+        padding-top: 50px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        margin-top: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body id="home">
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <div class="header-container">
+
+      <a href="/" class="logo">
+
+        <span class="logo-icon">
+          Y
+        </span>
+
+        <span class="logo-text">
+          <strong>YASHART</strong>
+          <small>Screen Printing</small>
+        </span>
+
+      </a>
+
+
+      <nav class="main-nav">
+
+  <a href="#home" class="active">
+    Home
+  </a>
+
+  <a href="#products">
+    Products
+  </a>
+
+  <a href="#contact">
+    Contact
+  </a>
+
+</nav>
+
+
+      <div class="header-contact">
+
+        <a
+          href="tel:+919323574124"
+          class="phone-link"
+        >
+          <span class="phone-icon">
+            ☎
+          </span>
+
+          <strong>
+            +91 93235 74124
+          </strong>
+        </a>
+
+
+        <a
+          href="https://wa.me/919323574124?text=Hi%20Yashart%2C%20I%20would%20like%20a%20quote."
+          class="whatsapp-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       CATALOGUE
+  ========================= -->
+
+  <main>
+
+    <section class="catalogue">
+
+      <span class="catalogue-label">
+        Catalogue
+      </span>
+
+      <h1>
+        Our Products
+      </h1>
+
+      <p class="catalogue-description">
+        Browse our full range and request a custom quote for any product —
+        bulk-friendly pricing and custom printing available.
+      </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORY TABS
+    ========================= -->
+
+    <div class="category-tabs" id="products">
+
+      <button class="category-tab active" data-category="all">
+        All
+      </button>
+
+      <button class="category-tab" data-category="Disposable Items">
+        Disposable Items
+      </button>
+
+      <button class="category-tab" data-category="Wedding Cards">
+        Wedding Cards
+      </button>
+
+      <button class="category-tab" data-category="Visiting Cards">
+        Visiting Cards
+      </button>
+
+      <button class="category-tab" data-category="Stickers & Labels">
+        Stickers & Labels
+      </button>
+
+      <button class="category-tab" data-category="Carry Bags">
+        Carry Bags
+      </button>
+
+      <button class="category-tab" data-category="Hotel Parcel Containers">
+        Hotel Parcel Containers
+      </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================= -->
+
+    <section class="products-section">
+
+      <div class="products-grid">
+
+
+        <!-- 1 FOOD PARCEL 500 ML -->
+
+        <a
+          href="products/food-parcel-container-500-ml.html" class="product-card"
+          class="product-card"
+          data-category="Hotel Parcel Containers"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              500
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Hotel Parcel Containers
+            </span>
+
+            <h2 class="product-title">
+              Food Parcel Container 500 ml
+            </h2>
+
+            <p class="product-description">
+              Round Containers · Food-grade PP · 500 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 2 PRINTED PAPER CARRY BAG -->
+
+        <a
+          href="products/printed-paper-carry-bag.html"
+          class="product-card"
+          data-category="Carry Bags"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              BAG
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Carry Bags
+            </span>
+
+            <h2 class="product-title">
+              Printed Paper Carry Bag
+            </h2>
+
+            <p class="product-description">
+              Paper Bags · 150 GSM Kraft · 10x14 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 3 LABEL STICKER -->
+
+        <a
+          href="products/product-label-sticker-roll.html"
+          class="product-card"
+          data-category="Stickers & Labels"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              LABEL
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Stickers & Labels
+            </span>
+
+            <h2 class="product-title">
+              Product Label Sticker Roll
+            </h2>
+
+            <p class="product-description">
+              Labels · Chromo paper · Custom
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 4 SPOT UV CARD -->
+
+        <a
+          href="products/spot-uv-premium-card.html"
+          class="product-card"
+          data-category="Visiting Cards"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              UV
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Visiting Cards
+            </span>
+
+            <h2 class="product-title">
+              Spot UV Premium Card
+            </h2>
+
+            <p class="product-description">
+              Premium · 400 GSM Art · 3.5x2 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 5 MATTE VISITING CARD -->
+
+        <a
+          href="products/matte-finish-visiting-card.html"
+          class="product-card"
+          data-category="Visiting Cards"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              MATTE
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Visiting Cards
+            </span>
+
+            <h2 class="product-title">
+              Matte Finish Visiting Card
+            </h2>
+
+            <p class="product-description">
+              Matte · 350 GSM Art · 3.5x2 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 6 MODERN WEDDING CARD -->
+
+        <a
+        href="products/modern-minimal-wedding-card.html"
+          class="product-card"
+          data-category="Wedding Cards"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              INVITE
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Wedding Cards
+            </span>
+
+            <h2 class="product-title">
+              Modern Minimal Wedding Card
+            </h2>
+
+            <p class="product-description">
+              Contemporary · 300 GSM Matte · 6x8 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 7 ROYAL GOLD FOIL -->
+
+        <a
+          href="products/royal-gold-foil-wedding-card.html"
+          class="product-card"
+          data-category="Wedding Cards"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              GOLD
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Wedding Cards
+            </span>
+
+            <h2 class="product-title">
+              Royal Gold Foil Wedding Card
+            </h2>
+
+            <p class="product-description">
+              Premium Cards · 300 GSM Art Card · 6x9 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 8 PAPER CUP 250 ML -->
+
+        <a
+          href="products/paper-cup-250-ml.html"
+          class="product-card"
+          data-category="Disposable Items"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              250
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Disposable Items
+            </span>
+
+            <h2 class="product-title">
+              Paper Cup 250 ml
+            </h2>
+
+            <p class="product-description">
+              Paper Cups · Food-grade paper · 250 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 9 PAPER CUP 100 ML -->
+
+        <a
+          href="products/paper-cup-100-ml.html"
+          class="product-card"
+          data-category="Disposable Items"
+        >
+
+          <div class="product-image">
+
+            <span class="featured-badge">
+              Featured
+            </span>
+
+            <span class="product-symbol">
+              100
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Disposable Items
+            </span>
+
+            <h2 class="product-title">
+              Paper Cup 100 ml
+            </h2>
+
+            <p class="product-description">
+              Paper Cups · Food-grade paper · 100 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 10 FOOD PARCEL 750 ML -->
+
+        <a
+          href="products/food-parcel-container-750-ml.html"
+          class="product-card"
+          data-category="Hotel Parcel Containers"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              750
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Hotel Parcel Containers
+            </span>
+
+            <h2 class="product-title">
+              Food Parcel Container 750 ml
+            </h2>
+
+            <p class="product-description">
+              Round Containers · Food-grade PP · 750 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 11 ALUMINIUM FOIL -->
+
+        <a
+          href="products/aluminium-foil-container-450-ml.html""
+          class="product-card"
+          data-category="Hotel Parcel Containers"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              FOIL
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Hotel Parcel Containers
+            </span>
+
+            <h2 class="product-title">
+              Aluminium Foil Container 450 ml
+            </h2>
+
+            <p class="product-description">
+              Foil Containers · Aluminium · 450 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 12 BOUTIQUE HANDLE BAG -->
+
+        <a
+          href="products/boutique-handle-bag.html"
+          class="product-card"
+          data-category="Carry Bags"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              BAG
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Carry Bags
+            </span>
+
+            <h2 class="product-title">
+              Boutique Handle Bag
+            </h2>
+
+            <p class="product-description">
+              Premium · Art card · 10x12 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 13 NON WOVEN BAG -->
+
+        <a
+          href="products/non-woven-d-cut-bag.html"
+          class="product-card"
+          data-category="Carry Bags"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              D-CUT
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Carry Bags
+            </span>
+
+            <h2 class="product-title">
+              Non-Woven D-Cut Bag
+            </h2>
+
+            <p class="product-description">
+              Non-Woven · 80 GSM Non-Woven · 12x16 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 14 BARCODE LABEL -->
+
+        <a
+  href="products/barcode-price-label.html"
+  class="product-card"
+  data-category="Stickers & Labels"
+>
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              CODE
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Stickers & Labels
+            </span>
+
+            <h2 class="product-title">
+              Barcode / Price Label
+            </h2>
+
+            <p class="product-description">
+              Barcode · Thermal paper · 50x25 mm
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 15 VINYL STICKER -->
+
+  <a
+  href="products/vinyl-waterproof-sticker.html"
+  class="product-card"
+  data-category="Stickers & Labels"
+>
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              VINYL
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Stickers & Labels
+            </span>
+
+            <h2 class="product-title">
+              Vinyl Waterproof Sticker
+            </h2>
+
+            <p class="product-description">
+              Stickers · Vinyl · Custom
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 16 TEXTURED KRAFT -->
+
+        <a
+  href="products/textured-kraft-business-card.html"
+  class="product-card"
+  data-category="Visiting Cards"
+>
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              KRAFT
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Visiting Cards
+            </span>
+
+            <h2 class="product-title">
+              Textured Kraft Business Card
+            </h2>
+
+            <p class="product-description">
+              Kraft · 300 GSM Kraft · 3.5x2 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 17 GLOSSY VISITING CARD -->
+
+      <a
+  href="products/glossy-laminated-visiting-card.html"
+  class="product-card"
+  data-category="Visiting Cards"
+>
+          <div class="product-image">
+
+            <span class="product-symbol">
+              GLOSS
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Visiting Cards
+            </span>
+
+            <h2 class="product-title">
+              Glossy Laminated Visiting Card
+            </h2>
+
+            <p class="product-description">
+              Glossy · 350 GSM Art · 3.5x2 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 18 TRADITIONAL WEDDING CARD -->
+<a
+  href="products/traditional-red-gold-card.html"
+  class="product-card"
+  data-category="Wedding Cards"
+>
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              R&G
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Wedding Cards
+            </span>
+
+            <h2 class="product-title">
+              Traditional Red & Gold Card
+            </h2>
+
+            <p class="product-description">
+              Traditional · 300 GSM Card · 6x9 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 19 CLASSIC IVORY -->
+
+        <a
+          href="products/classic-ivory-wedding-invite.html"
+          class="product-card"
+          data-category="Wedding Cards"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              IVORY
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Wedding Cards
+            </span>
+
+            <h2 class="product-title">
+              Classic Ivory Wedding Invite
+            </h2>
+
+            <p class="product-description">
+              Classic Cards · 250 GSM Ivory · 5x7 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 20 PAPER PLATE -->
+
+        <a
+          href="products/paper-plate-7-inch.html"
+          class="product-card"
+          data-category="Disposable Items"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              7"
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Disposable Items
+            </span>
+
+            <h2 class="product-title">
+              Paper Plate 7 inch
+            </h2>
+
+            <p class="product-description">
+              Paper Plates · Coated paper · 7 inch
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- 21 PAPER CUP 150 ML -->
+
+        <a
+          href="products/paper-cup-150-ml.html"
+          class="product-card"
+          data-category="Disposable Items"
+        >
+
+          <div class="product-image">
+
+            <span class="product-symbol">
+              150
+            </span>
+
+          </div>
+
+          <div class="product-info">
+
+            <span class="product-category">
+              Disposable Items
+            </span>
+
+            <h2 class="product-title">
+              Paper Cup 150 ml
+            </h2>
+
+            <p class="product-description">
+              Paper Cups · Food-grade paper · 150 ml
+            </p>
+
+            <span class="product-view">
+              View Product
+            </span>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer class="site-footer" id="contact">
+
+    <div class="footer-container">
+
+
+      <!-- Brand -->
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+
+          <span class="footer-logo-icon">
+            Y
+          </span>
+
+          <span class="footer-logo-text">
+            YASHART
+          </span>
+
+        </div>
+
+        <p class="footer-description">
+          Printing & Packaging Solutions Under One Roof
+          From wedding cards to food-grade disposables —
+          customized, printed and delivered.
+        </p>
+
+      </div>
+
+      <!-- Contact -->
+
+      <div class="footer-section">
+
+        <h3>
+          Contact
+        </h3>
+
+        <ul class="footer-contact">
+
+          <li>
+            <span class="contact-icon">☎</span>
+
+            <a href="tel:+919323574124">
+              +91 93235 74124
+            </a>
+          </li>
+
+
+          <li>
+            <span class="contact-icon">☘</span>
+
+           <a 
+        href="https://www.instagram.com/yashart_214?igsi=dzBtOXJ4ZWoyY2Fo" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center space-x-2 text-sm font-medium text-black hover:text-rose-600 transition"
+      >
+        <i data-lucide="instagram" class="w-5 h-5"></i>
+        <span>Follow on Instagram</span>
+      </a>
+          </li>
+
+
+          <li>
+            <span class="contact-icon">✉</span>
+
+            <a href="mailto:yashart139@gmail.com">
+              yashart139@gmail.com
+            </a>
+          </li>
+
+
+          <li>
+            <span class="contact-icon">⌖</span>
+
+            Abid rolling shutter, Shop no.7,
+            Kunchikorve Nagar, 60 ft road,
+            Dharavi - 400017
+          </li>
+
+        </ul>
+
+
+        <div class="working-hours">
+
+          <strong>
+            Working Hours
+          </strong>
+
+          Morning 11 to Evening 6
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Copyright -->
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 YASHART. All rights reserved.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       CATEGORY FILTER
+  ========================= -->
+
+  <script>
+
+    const tabs = document.querySelectorAll(".category-tab");
+    const products = document.querySelectorAll(".product-card");
+
+
+    tabs.forEach(tab => {
+
+      tab.addEventListener("click", () => {
+
+        const selectedCategory = tab.dataset.category;
+
+
+        /* Active tab */
+
+        tabs.forEach(item => {
+          item.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+
+        /* Filter products */
+
+        products.forEach(product => {
+
+          const productCategory = product.dataset.category;
+
+
+          if (
+            selectedCategory === "all" ||
+            productCategory === selectedCategory
+          ) {
+
+            product.classList.remove("hidden");
+
+          } else {
+
+            product.classList.add("hidden");
+
+          }
+
+        });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
